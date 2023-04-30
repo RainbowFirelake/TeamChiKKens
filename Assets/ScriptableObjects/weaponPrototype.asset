@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b339ce2245246ba4f8c0d937bdc2bf24, type: 3}
+  m_Name: weaponPrototype
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 4856260962615220593, guid: 4b647e1428ac2294b9f07a16c689c253,
+    type: 3}
+  animatorOverride: {fileID: 0}
+  attackDistance: 10
+  rateOfFire: 600
+  isSemiautomatic: 0
+  damage: 5
+  timeBetweenAttacks: 0
+  leftHanded: 0
+  projectile: {fileID: -2061879891036597003, guid: 7c10196a33f050d46a1395e24cf4b3e7,
+    type: 3}
