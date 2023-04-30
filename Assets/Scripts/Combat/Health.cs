@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private float healthPoints = 100f;
     [SerializeField] private float maxHealthPoints = 100f;
+
     private bool isDead = false;
 
     public float GetHealth()
@@ -37,6 +38,6 @@ public class Health : MonoBehaviour
         if (isDead) return;
 
         isDead = true;
-        // GetComponent<Animator>().SetTrigger("die");
+        Destroy(this.gameObject);
     }
 }

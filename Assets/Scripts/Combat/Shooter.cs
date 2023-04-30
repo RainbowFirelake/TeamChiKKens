@@ -22,14 +22,13 @@ public class Shooter : MonoBehaviour
     private void Update() 
     {
         timeAfterLastShoot += Time.deltaTime;
-        Shoot();  
     }
 
-    private void Shoot()
+    public void Shoot()
     {
         float x = currentWeapon.GetRateOfFire() / 60;
         timeOnOneShot = 1 / x;
-        if (timeAfterLastShoot > timeOnOneShot && Input.GetMouseButton(0))
+        if (timeAfterLastShoot > timeOnOneShot)
         {
             currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, this.gameObject, transform.rotation);
             timeAfterLastShoot = 0;
@@ -44,8 +43,7 @@ public class Shooter : MonoBehaviour
 
     private void AttachWeapon(Weapons weapon)
     {
-        currentWeapon.Equip(rightHandTransform, leftHandTransform); // необходим animator 
-                                                //  третьим аргументом для работы анимации
+        currentWeapon.Equip(rightHandTransform, leftHandTransform);
     }
 
     private Weapons SetupDefaultWeapon()

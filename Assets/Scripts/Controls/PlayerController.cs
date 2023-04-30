@@ -1,18 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
     public float speed = 3f;
 
+    [SerializeField]
+    private Movement _movement;
+    [SerializeField]
+    private Shooter _shooter;
+    [SerializeField]
+    private Inventory _inventory;
+    [SerializeField]
+    private LayerMask _maskForAiming;
+
     private Camera mainCamera;
-    private NavMeshAgent agent;
 
     private void Start() {
         mainCamera = Camera.main;
-        agent = GetComponent<NavMeshAgent>();
     }
 
     private void Update()
@@ -20,19 +26,20 @@ public class PlayerController : MonoBehaviour
         var x = Input.GetAxis("Horizontal");
         var z = Input.GetAxis("Vertical");
 
-        if (x != 0 || z != 0)
+        _movement.Move(x, z);
+        
+        if (Input.GetMouseButton(0))
         {
-            var moveDirection = new Vector3(x, 0, z);
-            var movePosition = transform.position + moveDirection;
-            
-            agent.SetDestination(movePosition);
+            _shooter.Shoot();
         }
-        else 
+
+        if (Input.GetKeyUp(KeyCode.E))
         {
-            agent.SetDestination(transform.position);
+            _inventory.Pickup();
         }
+
         var rayFromCamera = mainCamera.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(rayFromCamera, out var hit))
+        if (Physics.Raycast(rayFromCamera, out var hit, 100f, _maskForAiming))
         {
             var hitPointWithCharY = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(hitPointWithCharY);
