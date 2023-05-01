@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - FxTemporaire
+  - SpawnZone
+  - WorkingStation
   layers:
   - Default
   - TransparentFX
