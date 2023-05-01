@@ -46,7 +46,8 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-
+*.vsconfig
+Packages\packages-lock.json
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
@@ -70,3 +71,8 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Packages/packages-lock.json
+Assets/Settings/URP-HighFidelity-Renderer.asset
+Packages/packages-lock.json
+ProjectSettings/Packages/com.unity.probuilder/Settings.json
+ProjectSettings/ShaderGraphSettings.asset
