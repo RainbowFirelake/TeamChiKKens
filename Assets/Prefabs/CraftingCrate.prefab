@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 4718763018947030479}
   - component: {fileID: 4718763018947030474}
   m_Layer: 0
-  m_Name: PickableObject
-  m_TagString: Untagged
+  m_Name: CraftingCrate
+  m_TagString: CraftingCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
