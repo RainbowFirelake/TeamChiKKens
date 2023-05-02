@@ -26,11 +26,9 @@ public class Shooter : MonoBehaviour
 
     public void Shoot()
     {
-        float x = currentWeapon.GetRateOfFire() / 60;
-        timeOnOneShot = 1 / x;
         if (timeAfterLastShoot > timeOnOneShot)
         {
-            currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, this.gameObject, transform.rotation);
+            currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, transform.rotation);
             timeAfterLastShoot = 0;
         }
     }
@@ -43,6 +41,7 @@ public class Shooter : MonoBehaviour
 
     private void AttachWeapon(Weapons weapon)
     {
+        InitializeRateOfFire();
         currentWeapon.Equip(rightHandTransform, leftHandTransform);
     }
 
@@ -50,5 +49,12 @@ public class Shooter : MonoBehaviour
     {
         AttachWeapon(defaultWeapon);
         return defaultWeapon;
+    }
+
+    private void InitializeRateOfFire()
+    {
+        float x = (float)currentWeapon.GetRateOfFire() / 60;
+        timeOnOneShot = 1 / x;
+        timeAfterLastShoot = Mathf.Infinity;
     }
 }

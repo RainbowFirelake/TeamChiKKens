@@ -4,18 +4,18 @@ using System.Collections.Generic;
 
 public class PickupTrigger : MonoBehaviour
 {
-    public event Action<List<Pickupable>> OnItemCheck;
+    public event Action<List<Interactable>> OnItemCheck;
 
-    private List<Pickupable> _itemsAround;
+    private List<Interactable> _itemsAround;
 
     void Start()
     {
-        _itemsAround = new List<Pickupable>();
+        _itemsAround = new List<Interactable>();
     }
 
     void OnTriggerEnter(Collider other)
     {
-        var pickupable = other.GetComponent<Pickupable>();
+        var pickupable = other.GetComponent<Interactable>();
 
         if (pickupable != null)
         {
@@ -26,7 +26,7 @@ public class PickupTrigger : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        var pickupable = other.GetComponent<Pickupable>();
+        var pickupable = other.GetComponent<Interactable>();
         if (pickupable != null)
         {
             _itemsAround.Remove(pickupable);

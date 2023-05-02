@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b339ce2245246ba4f8c0d937bdc2bf24, type: 3}
-  m_Name: weaponPrototype
+  m_Name: Rifle
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 4856260962615220593, guid: 4b647e1428ac2294b9f07a16c689c253,
+  _weaponPrefab: {fileID: 5313856188506331232, guid: 7444562fe5798e846a4045a93e123308,
     type: 3}
-  animatorOverride: {fileID: 0}
-  attackDistance: 10
-  rateOfFire: 600
-  isSemiautomatic: 0
-  damage: 5
-  timeBetweenAttacks: 0
-  leftHanded: 0
   projectile: {fileID: -2061879891036597003, guid: 7c10196a33f050d46a1395e24cf4b3e7,
     type: 3}
+  _rateOfFire: 600
+  _damage: 15
+  _bulletSpeed: 30
+  _isDamageArea: 0
+  _damageArea: 1
+  _impactEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
+    type: 3}
+  leftHanded: 0

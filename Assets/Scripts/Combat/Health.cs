@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
         return isDead;
     }
 
-    public void TakeDamage(GameObject instigator, float damage)
+    public void TakeDamage(float damage)
     {
         healthPoints = Mathf.Max(healthPoints - damage, 0);
         if (healthPoints <= 0)

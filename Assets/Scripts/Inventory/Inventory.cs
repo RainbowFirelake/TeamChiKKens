@@ -9,15 +9,15 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private Transform _holdingObjectPoint;
     [SerializeField]
-    private float _pickupDistance = 3f;
+    private Shooter _shooter = null;
 
     private Transform _transform;
-    private Pickupable _currentItemInHands = null;
-    private List<Pickupable> _itemsAround;
+    private Interactable _currentItemInHands = null;
+    private List<Interactable> _itemsAround;
 
     void Start()
     {
-        _itemsAround = new List<Pickupable>();
+        _itemsAround = new List<Interactable>();
         _transform = GetComponent<Transform>();
     }
 
@@ -39,7 +39,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void CheckForItemsAround(List<Pickupable> itemsAround)
+    public void CheckForItemsAround(List<Interactable> itemsAround)
     {
         _itemsAround = itemsAround;
     }
@@ -48,26 +48,44 @@ public class Inventory : MonoBehaviour
     {
         if (_currentItemInHands != null)
         {
+            _currentItemInHands.isInHands = false;
             _currentItemInHands = null;
             return;
         }
 
         var minimalDistance = 4f;
-        Pickupable nearestPickupable = null;
+        Interactable nearestInteractable = null;
         foreach (var pickupable in _itemsAround)
         {
             var distance = (_transform.position - pickupable.GetPosition()).sqrMagnitude;
             //var distance = Vector3.Distance(_transform.position, pickupable.GetPosition());
             if (distance < minimalDistance * minimalDistance)
             {
-                nearestPickupable = pickupable;
+                if (pickupable.isInHands) continue;
+                nearestInteractable = pickupable;
                 minimalDistance = distance;
             }
         }
 
-        if (nearestPickupable != null)
+        if (nearestInteractable != null && nearestInteractable.isActivator)
         {
-            _currentItemInHands = nearestPickupable;
+            Debug.Log("Crafting");
+            nearestInteractable.craftingActivator.DoCraft();
+            return;
+        }
+
+        if (_shooter != null && nearestInteractable != null && nearestInteractable.IsWeapon)
+        {
+            _shooter.EquipWeapon(nearestInteractable.GetWeapon);
+            _itemsAround.Remove(nearestInteractable);
+            Destroy(nearestInteractable.gameObject);
+            return;
+        }
+
+        if (nearestInteractable != null)
+        {
+            nearestInteractable.isInHands = true;
+            _currentItemInHands = nearestInteractable;
         }
     }
 }

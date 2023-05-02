@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 4718763018947030473}
   - component: {fileID: 4718763018947030478}
   - component: {fileID: 4718763018947030479}
-  - component: {fileID: 4718763018947030474}
-  m_Layer: 0
+  - component: {fileID: 6473001335270021924}
+  m_Layer: 6
   m_Name: CraftingCrate
   m_TagString: CraftingCrate
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &4718763018947030474
+--- !u!114 &6473001335270021924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +124,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4718763018947030476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0828f8496744b77499121a730c0eedc2, type: 3}
+  m_Script: {fileID: 11500000, guid: cef796920d53a9a4fa28f00f03973f56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isWeapon: 0
+  _weapon: {fileID: 0}
+  isActivator: 0
+  craftingActivator: {fileID: 0}
+  isInHands: 0

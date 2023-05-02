@@ -4,35 +4,83 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float damage = 8f;
-    [SerializeField] GameObject impactEffect = null;
-    [SerializeField] float lifeTime = 20.0f;
+    private float _speed = 1f;
+    private float _damage = 8f;
+    private GameObject _impactEffect = null;
+    private bool _isDamageImpactsOnArea = false;
+    private float _damageArea = 0.1f;
+    [SerializeField] float _lifeTime = 10.0f;
 
     private GameObject instigator = null;
 
     private void Start()
     {
-        Destroy(gameObject, lifeTime);
+        Destroy(gameObject, _lifeTime);
     }
 
     void Update()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+    }
+
+    public void SetDamage(float damage)
+    {
+        this._damage = damage;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
+
+    public void SetImpactEffect(GameObject impactEffect)
+    {
+        _impactEffect = impactEffect;
+    }
+
+    public void SetAreaDamage(float damageArea)
+    {
+        _isDamageImpactsOnArea = true;
+        _damageArea = damageArea;
+    }
+
+    private void AreaDamage()
+    {
+        Collider[] enemies = Physics.OverlapSphere(transform.position, _damageArea);
+        foreach (var enemy in enemies)
+        {
+            var health = enemy.GetComponent<Health>();
+            if (health != null)
+            {
+                health.TakeDamage(_damage);
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
         Health reachedTarget = other.GetComponent<Health>();
 
         if (!reachedTarget) return;
         if (reachedTarget.IsDead()) return;
 
-        if (impactEffect != null)
-            Instantiate(impactEffect, transform.position, transform.rotation);
-
-        reachedTarget.TakeDamage(instigator, damage);
+        if (_impactEffect != null)
+            Instantiate(_impactEffect, transform.position, transform.rotation);
+        if (_isDamageImpactsOnArea)
+        {
+            AreaDamage();
+        }
+        else 
+        {
+            reachedTarget.TakeDamage(_damage);
+        }
         Destroy(gameObject);
+    }
+
+    void OnDrawGizmos()
+    {
+        if (!_isDamageImpactsOnArea) return;
+
+        Gizmos.DrawSphere(transform.position, _damageArea);
     }
 }
