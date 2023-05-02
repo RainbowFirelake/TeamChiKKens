@@ -14,13 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _weaponPrefab: {fileID: 5313856188506331232, guid: 7444562fe5798e846a4045a93e123308,
     type: 3}
-  projectile: {fileID: -2061879891036597003, guid: 7c10196a33f050d46a1395e24cf4b3e7,
+  projectile: {fileID: 3571444595656249468, guid: a02ff1da0afabd4459a099741434094a,
     type: 3}
   _rateOfFire: 600
   _damage: 15
   _bulletSpeed: 30
-  _isDamageArea: 0
+  _isDamageImpactsOnArea: 0
   _damageArea: 1
+  _isLaunchingSeveralPellets: 0
+  _pelletsCount: 5
+  _spreadAngle: 0
+  _shootSounds: {fileID: 11400000, guid: 1dffad28f6dfac74a980d8444a5d05df, type: 2}
+  _impactSounds: {fileID: 11400000, guid: 9031028023f4f0d45ab3768f2dcee0c7, type: 2}
   _impactEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
     type: 3}
   leftHanded: 0

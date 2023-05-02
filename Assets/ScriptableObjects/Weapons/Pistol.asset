@@ -23,5 +23,8 @@ MonoBehaviour:
   _damageArea: 3
   _isLaunchingSeveralPellets: 0
   _pelletsCount: 5
+  _spreadAngle: 0
+  _shootSounds: {fileID: 11400000, guid: 124015730895d5648ac2e78bf824a310, type: 2}
+  _impactSounds: {fileID: 11400000, guid: 9031028023f4f0d45ab3768f2dcee0c7, type: 2}
   _impactEffect: {fileID: 0}
   leftHanded: 0

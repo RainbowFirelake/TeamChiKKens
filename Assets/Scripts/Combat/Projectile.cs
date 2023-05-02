@@ -10,8 +10,12 @@ public class Projectile : MonoBehaviour
     private bool _isDamageImpactsOnArea = false;
     private float _damageArea = 0.1f;
     [SerializeField] float _lifeTime = 10.0f;
+    [SerializeField]
+    private EffectSoundPlayer _impactSoundEffects;
+    [SerializeField]
+    private AudioSource _audioSource; 
 
-    private GameObject instigator = null;
+    private bool _isActivated = false;
 
     private void Start()
     {
@@ -20,6 +24,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
+        if (_isActivated) return;
         transform.Translate(Vector3.forward * _speed * Time.deltaTime);
     }
 
@@ -44,6 +49,11 @@ public class Projectile : MonoBehaviour
         _damageArea = damageArea;
     }
 
+    public void SetImpactSounds(EffectSoundPlayer _sounds)
+    {
+        _impactSoundEffects = _sounds;
+    }
+
     private void AreaDamage()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, _damageArea);
@@ -59,6 +69,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_isActivated) return;
         Health reachedTarget = other.GetComponent<Health>();
 
         if (!reachedTarget) return;
@@ -74,7 +85,12 @@ public class Projectile : MonoBehaviour
         {
             reachedTarget.TakeDamage(_damage);
         }
-        Destroy(gameObject);
+        if (_impactSoundEffects != null && _audioSource != null)
+        {
+            _impactSoundEffects.PlayRandomSound(_audioSource);
+        }
+        _isActivated = true;
+        Destroy(gameObject, 1.5f);
     }
 
     void OnDrawGizmos()

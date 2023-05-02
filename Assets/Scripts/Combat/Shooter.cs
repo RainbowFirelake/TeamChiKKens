@@ -10,6 +10,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] private Weapons defaultWeapon = null;
     [SerializeField] Transform rightHandTransform = null;
     [SerializeField] Transform leftHandTransform = null;
+    [SerializeField] private AudioSource _source;
 
     private float timeAfterLastShoot = Mathf.Infinity;
     private float timeOnOneShot;
@@ -29,6 +30,7 @@ public class Shooter : MonoBehaviour
         if (timeAfterLastShoot > timeOnOneShot)
         {
             currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, transform.rotation);
+            currentWeapon.GetSoundPlayer().PlayRandomSound(_source);
             timeAfterLastShoot = 0;
         }
     }

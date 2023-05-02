@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "Weapons", menuName = "Zombie Shooter Prototype/Weapons", order = 0)]
+[CreateAssetMenu(fileName = "Weapons", menuName = "GBJam/New Weapon", order = 0)]
 public class Weapons : ScriptableObject 
 {
     [SerializeField] 
@@ -25,6 +25,11 @@ public class Weapons : ScriptableObject
     [SerializeField]
     private float _spreadAngle;
 
+
+    [SerializeField] 
+    private EffectSoundPlayer _shootSounds;
+    [SerializeField]
+    private EffectSoundPlayer _impactSounds;
     [SerializeField]
     private GameObject _impactEffect = null;
     [SerializeField] 
@@ -81,6 +86,11 @@ public class Weapons : ScriptableObject
         return projectile != null;
     }
 
+    public EffectSoundPlayer GetSoundPlayer()
+    {
+        return _shootSounds;
+    }
+
     public void LaunchProjectile(Transform rightHand, Transform leftHand, Quaternion rotation)
     {
         if (_isLaunchingSeveralPellets)
@@ -99,22 +109,25 @@ public class Weapons : ScriptableObject
                 p.SetDamage(_damage);
                 p.SetSpeed(_bulletSpeed);
                 p.SetImpactEffect(_impactEffect);
+                p.SetImpactSounds(_impactSounds);
                 if (_isDamageImpactsOnArea)
                 {
                     p.SetAreaDamage(_damageArea);
                 }
                 spreadAngle += step;
             }
-            return;
         }
-        Projectile projectileInstance = Instantiate(projectile,
+        else {
+            Projectile projectileInstance = Instantiate(projectile,
             GetTransform(rightHand, leftHand).position, rotation);
-        projectileInstance.SetDamage(_damage);
-        projectileInstance.SetSpeed(_bulletSpeed);
-        projectileInstance.SetImpactEffect(_impactEffect);
-        if (_isDamageImpactsOnArea)
-        {
-            projectileInstance.SetAreaDamage(_damageArea);
+            projectileInstance.SetDamage(_damage);
+            projectileInstance.SetSpeed(_bulletSpeed);
+            projectileInstance.SetImpactEffect(_impactEffect);
+            projectileInstance.SetImpactSounds(_impactSounds);
+            if (_isDamageImpactsOnArea)
+            {
+                projectileInstance.SetAreaDamage(_damageArea);
+            }
         }
     }
 
