@@ -11,6 +11,7 @@ public class Shooter : MonoBehaviour
     [SerializeField] Transform rightHandTransform = null;
     [SerializeField] Transform leftHandTransform = null;
     [SerializeField] private AudioSource _source;
+    [SerializeField] private SideManager _sideManager;
 
     private float timeAfterLastShoot = Mathf.Infinity;
     private float timeOnOneShot;
@@ -29,10 +30,18 @@ public class Shooter : MonoBehaviour
     {
         if (timeAfterLastShoot > timeOnOneShot)
         {
-            currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, transform.rotation);
-            currentWeapon.GetSoundPlayer().PlayRandomSound(_source);
+            currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, 
+                rightHandTransform.rotation, _sideManager.GetSide());
+            var clip = currentWeapon.GetSoundPlayer().GetRandomSound();
+            _source.PlayOneShot(clip);
             timeAfterLastShoot = 0;
         }
+    }
+
+    public void SetAimDirection(Vector3 point)
+    {
+        leftHandTransform.LookAt(point);
+        rightHandTransform.LookAt(point);
     }
 
     public void EquipWeapon(Weapons weapon)

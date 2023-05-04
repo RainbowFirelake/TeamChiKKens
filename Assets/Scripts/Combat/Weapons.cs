@@ -25,7 +25,6 @@ public class Weapons : ScriptableObject
     [SerializeField]
     private float _spreadAngle;
 
-
     [SerializeField] 
     private EffectSoundPlayer _shootSounds;
     [SerializeField]
@@ -91,12 +90,12 @@ public class Weapons : ScriptableObject
         return _shootSounds;
     }
 
-    public void LaunchProjectile(Transform rightHand, Transform leftHand, Quaternion rotation)
+    public void LaunchProjectile(Transform rightHand, Transform leftHand, Quaternion rotation, Side side = Side.Default)
     {
         if (_isLaunchingSeveralPellets)
         {
-            var spreadAngle = -_spreadAngle;
-            var step = (spreadAngle * 2) / _pelletsCount;   
+            var spreadAngle = -_spreadAngle / 2;
+            var step = (_spreadAngle * 2) / _pelletsCount;   
             for (int i = 0; i < _pelletsCount; i++)
             {
                 Transform transform = GetTransform(rightHand, leftHand);
@@ -106,28 +105,14 @@ public class Weapons : ScriptableObject
                     transform.position, rotation);
                 p.transform.forward = bulletDirection;
 
-                p.SetDamage(_damage);
-                p.SetSpeed(_bulletSpeed);
-                p.SetImpactEffect(_impactEffect);
-                p.SetImpactSounds(_impactSounds);
-                if (_isDamageImpactsOnArea)
-                {
-                    p.SetAreaDamage(_damageArea);
-                }
+                InitializeBullet(p, side);
                 spreadAngle += step;
             }
         }
         else {
             Projectile projectileInstance = Instantiate(projectile,
             GetTransform(rightHand, leftHand).position, rotation);
-            projectileInstance.SetDamage(_damage);
-            projectileInstance.SetSpeed(_bulletSpeed);
-            projectileInstance.SetImpactEffect(_impactEffect);
-            projectileInstance.SetImpactSounds(_impactSounds);
-            if (_isDamageImpactsOnArea)
-            {
-                projectileInstance.SetAreaDamage(_damageArea);
-            }
+            InitializeBullet(projectileInstance, side);
         }
     }
 
@@ -139,5 +124,18 @@ public class Weapons : ScriptableObject
     public int GetRateOfFire()
     {
         return _rateOfFire;
+    }
+
+    private void InitializeBullet(Projectile projectileInstance, Side side = Side.Default)
+    {
+        projectileInstance.SetDamage(_damage);
+        projectileInstance.SetSpeed(_bulletSpeed);
+        projectileInstance.SetImpactEffect(_impactEffect);
+        projectileInstance.SetImpactSounds(_impactSounds);
+        projectileInstance.SetSide(side);
+        if (_isDamageImpactsOnArea)
+        {
+            projectileInstance.SetAreaDamage(_damageArea);
+        }
     }
 }

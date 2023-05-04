@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
         {
             var hitPointWithCharY = new Vector3(hit.point.x, transform.position.y, hit.point.z);
             transform.LookAt(hitPointWithCharY);
+            _shooter.SetAimDirection(hit.point);
         }
     }
 }

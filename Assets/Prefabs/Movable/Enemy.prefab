@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 777034931077425297}
   - component: {fileID: 777034931077425300}
   - component: {fileID: 777034931077425303}
-  m_Layer: 0
+  - component: {fileID: 2732272632976263980}
+  m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,6 +58,8 @@ MonoBehaviour:
   defaultWeapon: {fileID: 11400000, guid: 293de6a8f17e75241bce8836ec4b9ddb, type: 2}
   rightHandTransform: {fileID: 777034931102225769}
   leftHandTransform: {fileID: 777034931365270567}
+  _source: {fileID: 0}
+  _sideManager: {fileID: 2732272632976263980}
 --- !u!114 &777034931077425299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106,6 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthPoints: 100
   maxHealthPoints: 100
+  _sideManager: {fileID: 2732272632976263980}
 --- !u!136 &777034931077425300
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -136,6 +140,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2732272632976263980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777034931077425294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50c8eecc4d682604f8fab48da9517d4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _side: 2
 --- !u!1 &777034931102225766
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,10 +12,9 @@ public class Projectile : MonoBehaviour
     [SerializeField] float _lifeTime = 10.0f;
     [SerializeField]
     private EffectSoundPlayer _impactSoundEffects;
-    [SerializeField]
-    private AudioSource _audioSource; 
 
     private bool _isActivated = false;
+    private Side _side;
 
     private void Start()
     {
@@ -54,41 +53,75 @@ public class Projectile : MonoBehaviour
         _impactSoundEffects = _sounds;
     }
 
+    public void SetSide(Side side)
+    {
+        _side = side;
+    }
+
     private void AreaDamage()
     {
         Collider[] enemies = Physics.OverlapSphere(transform.position, _damageArea);
         foreach (var enemy in enemies)
         {
             var health = enemy.GetComponent<Health>();
-            if (health != null)
+            if (health != null && _side != health.GetSide())
             {
                 health.TakeDamage(_damage);
             }
         }
     }
 
+    private void PlayImpactSound()
+    {
+        if (_impactSoundEffects != null)
+        {
+            var clip = _impactSoundEffects.GetRandomSound();
+            ImpactSoundEffectPlayer.instance.PlayClipOnce(clip);
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (_isActivated) return;
+        if (other.tag == "Ground")
+        {
+            if (_impactEffect != null)
+            {
+                Instantiate(_impactEffect, transform.position, transform.rotation);
+            }
+
+            if (_isDamageImpactsOnArea)
+            {
+                AreaDamage();
+            }
+
+            PlayImpactSound();
+
+            _isActivated = true;
+            Destroy(gameObject, 1.5f);
+        }
+
         Health reachedTarget = other.GetComponent<Health>();
 
         if (!reachedTarget) return;
         if (reachedTarget.IsDead()) return;
+        if (reachedTarget.GetSide() == _side) return;
 
         if (_impactEffect != null)
             Instantiate(_impactEffect, transform.position, transform.rotation);
+
         if (_isDamageImpactsOnArea)
         {
             AreaDamage();
         }
+
         else 
         {
             reachedTarget.TakeDamage(_damage);
         }
-        if (_impactSoundEffects != null && _audioSource != null)
-        {
-            _impactSoundEffects.PlayRandomSound(_audioSource);
-        }
+
+        PlayImpactSound();
+
         _isActivated = true;
         Destroy(gameObject, 1.5f);
     }
