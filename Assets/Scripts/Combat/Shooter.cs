@@ -31,7 +31,15 @@ public class Shooter : MonoBehaviour
         timeOnOneShot = 1 / x;
         if (timeAfterLastShoot > timeOnOneShot && Input.GetMouseButton(0))
         {
+<<<<<<< Updated upstream
             currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, this.gameObject, transform.rotation);
+=======
+            Debug.Log(timeOnOneShot);
+            currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, 
+                rightHandTransform.rotation, _sideManager.GetSide());
+            var clip = currentWeapon.GetSoundPlayer().GetRandomSound();
+            _source.PlayOneShot(clip);
+>>>>>>> Stashed changes
             timeAfterLastShoot = 0;
         }
     }

@@ -143,6 +143,23 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
+<<<<<<< Updated upstream:Assets/Prefabs/projectile.prefab
+=======
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f94e530e6528854287e4bb786a6eb87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lifeTime: 4
+  _impactSoundEffects: {fileID: 11400000, guid: 1dffad28f6dfac74a980d8444a5d05df,
+    type: 2}
+--- !u!54 &805223491076257689
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6873476383225661899}
+>>>>>>> Stashed changes:Assets/Prefabs/Projectiles/BaseProjectile.prefab
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
