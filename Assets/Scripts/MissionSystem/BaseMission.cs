@@ -9,15 +9,42 @@ public abstract class BaseMission : MonoBehaviour
     public static event Action<String> OnMissionCompletionUpdate;
     public static event Action OnMissionEnd;
 
+    [SerializeField]
+    private List<GameObject> _objectToActivateWhenStarted;
+    [SerializeField]
+    private List<GameObject> _objectToActivateWhenEnded;
+    [SerializeField]
+    protected string _missionInfo;
+
     public abstract void StartMission();
     public abstract void EndMission();
+
+    protected void EnableObjectsOnStartMission()
+    {
+        if (_objectToActivateWhenStarted.Count == 0) return;
+
+        foreach (var obj in _objectToActivateWhenStarted)
+        {
+            obj.SetActive(true);
+        }
+    }
+
+    protected void EnableObjectsWhenEndMission()
+    {
+        if (_objectToActivateWhenEnded.Count == 0) return;
+
+        foreach (var obj in _objectToActivateWhenEnded)
+        {
+            obj.SetActive(true);
+        }
+    }
 
     protected void OnMissionStartInvoke(string missionInfo)
     {
         OnMissionStart?.Invoke(missionInfo);
     }
 
-    protected void OnMissionCompetionUpdateInvoke(string missionCompletionInfo)
+    protected void OnMissionCompletionUpdateInvoke(string missionCompletionInfo)
     {
         OnMissionCompletionUpdate?.Invoke(missionCompletionInfo);
     }

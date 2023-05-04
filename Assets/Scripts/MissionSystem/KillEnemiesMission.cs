@@ -4,21 +4,23 @@ public class KillEnemiesMission : BaseMission
 {
     [SerializeField]
     private int _killCountToComplete = 5;
-    [SerializeField]
-    private string _missionInfo;
+    
     private int _currentKilledEnemyCount = 0;
 
     public override void StartMission()
     {
-        Health.OnDie += CheckEnemyDie;
+        Health.OnEnemyDie += CheckEnemyDie;
         OnMissionStartInvoke(_missionInfo);
-        OnMissionCompetionUpdateInvoke(_currentKilledEnemyCount + "/" + _killCountToComplete);
+        EnableObjectsOnStartMission();
+        OnMissionCompletionUpdateInvoke(_currentKilledEnemyCount + "/" + _killCountToComplete);
     }
 
     public override void EndMission()
     {
-        Health.OnDie -= CheckEnemyDie;
+        EnableObjectsWhenEndMission();
+        Health.OnEnemyDie -= CheckEnemyDie;
         OnMissionEndInvoke();
+        this.gameObject.SetActive(false);
     }
 
     private void CheckEnemyDie(Side side)
@@ -26,7 +28,7 @@ public class KillEnemiesMission : BaseMission
         if (side == Side.Enemy)
         {
             _currentKilledEnemyCount++;
-            OnMissionCompetionUpdateInvoke(_currentKilledEnemyCount + "/" + _killCountToComplete);
+            OnMissionCompletionUpdateInvoke(_currentKilledEnemyCount + "/" + _killCountToComplete);
             if (_currentKilledEnemyCount >= _killCountToComplete)
             {
                 EndMission();

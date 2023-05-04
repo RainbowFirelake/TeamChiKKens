@@ -5,11 +5,15 @@ using System;
 
 public class Health : MonoBehaviour
 {
-    public static event Action<Side> OnDie;
+    public static event Action<Side> OnEnemyDie;
+    public event Action OnDie;
+
+    public event Action<float> OnUpdateHealth;
 
     [SerializeField] private float healthPoints = 100f;
     [SerializeField] private float maxHealthPoints = 100f;
     [SerializeField] private SideManager _sideManager;
+    [SerializeField] private bool _destroyOnDie = true;
 
     private bool isDead = false;
 
@@ -36,6 +40,7 @@ public class Health : MonoBehaviour
     public void TakeDamage(float damage)
     {
         healthPoints = Mathf.Max(healthPoints - damage, 0);
+        OnUpdateHealth?.Invoke(healthPoints);
         if (healthPoints <= 0)
         {
             Die();
@@ -46,8 +51,12 @@ public class Health : MonoBehaviour
     {
         if (isDead) return;
 
-        OnDie?.Invoke(GetSide());
+        OnEnemyDie?.Invoke(GetSide());
+        OnDie?.Invoke();
         isDead = true;
-        Destroy(this.gameObject);
+        if (_destroyOnDie)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
