@@ -16,6 +16,7 @@ public class DefendMission : BaseMission
 
     public override void EndMission()
     {
+        EnableObjectsWhenEndMission();
         OnMissionEndInvoke();
         this.gameObject.SetActive(false);
     }
@@ -23,6 +24,7 @@ public class DefendMission : BaseMission
     public override void StartMission()
     {
         OnMissionStartInvoke(_missionInfo);
+        EnableObjectsOnStartMission();
         _timeLeft = _timeToDefend;
         StartCoroutine(StartTimer());
     }
@@ -53,12 +55,6 @@ public class DefendMission : BaseMission
 
     private void MissionFailed()
     {
-        StartCoroutine(ReloadScene());
-    }
-
-    private IEnumerator ReloadScene()
-    {
-        yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(0);
+        LoseScreen.instance.Lose();
     }
 }

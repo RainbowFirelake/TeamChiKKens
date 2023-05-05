@@ -11,14 +11,9 @@ public class DialogueArea : MonoBehaviour
 
     private bool _isActivatedBefore = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+    public void ActivateDialogue()
     {
-        // если триггер задел игрок и при этом диалог не был активирован ранее:
-        // Вызов диалога
-        if (other.gameObject.tag == "Player" && !_isActivatedBefore)
-        {
-            _isActivatedBefore = true;
-            OnEnteringDialogue?.Invoke(dialogue);
-        }
+        _isActivatedBefore = true;
+        OnEnteringDialogue?.Invoke(dialogue);
     }
 }

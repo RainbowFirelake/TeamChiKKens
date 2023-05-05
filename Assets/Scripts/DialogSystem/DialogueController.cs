@@ -10,9 +10,6 @@ public class DialogueController : MonoBehaviour
 {
     public static event Action onDialogueStart;
     public static event Action onDialogueEnd;
-    public static event Action onVideoPlay;
-
-    
 
     // Объекты для хранения информации о диалоге
     [SerializeField] private GameObject dialoguePanel = null;
@@ -23,6 +20,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private Dialogue currentDialogue = null;
     [SerializeField] private float timeOfLetterShowing = 0.01f;
     [SerializeField] private bool _isKeyNeededToContinue = false;
+    [SerializeField] private float _timeToAutoContinueDialogue = 2f;
     [SerializeField] private KeyCode keyToContinueDialogue = KeyCode.F;
 
     private int _currentDialogueLineIndex = -1;
@@ -30,6 +28,7 @@ public class DialogueController : MonoBehaviour
     private bool isDialogueActive = false;
     private bool isPanelInitialized = false;
     private AudioSource audioSource = null;
+    private bool _showLineEnded = false;
 
     public int NumberOfFinishedDialogues { get { return _numberOfFinishedDialogues; } }
     public int CurrentDialogueLineIndex { get { return _currentDialogueLineIndex; } }
@@ -58,9 +57,14 @@ public class DialogueController : MonoBehaviour
         if (isDialogueActive)
         {
             // при нажатии клавиши - следующая строчка диалога
-            if (Input.GetKeyUp(keyToContinueDialogue))
+            if (_isKeyNeededToContinue && Input.GetKeyUp(keyToContinueDialogue))
             {
                 NextDialogueLine();
+            }
+            else if (_showLineEnded)
+            {
+                _showLineEnded = false;
+                StartCoroutine(AutoContinueDialogue());
             }
         }
     }
@@ -118,7 +122,17 @@ public class DialogueController : MonoBehaviour
             audioSource.Play();
         }
         StartCoroutine(TextVisualisation(dialogueLine.text));
-        portrait.sprite = dialogueLine.speakerData.portrait;
+        var port = dialogueLine.speakerData.portrait;
+        if (port != null)
+        {
+            portrait.sprite = port;
+        }
+    }
+
+    private IEnumerator AutoContinueDialogue()
+    {
+        yield return new WaitForSeconds(_timeToAutoContinueDialogue);
+        NextDialogueLine();
     }
 
     private IEnumerator TextVisualisation(string text)
@@ -129,5 +143,6 @@ public class DialogueController : MonoBehaviour
             tmp_dialogueLine.text += letter;
             yield return new WaitForSeconds(timeOfLetterShowing);
         }
+        _showLineEnded = true;
     }
 }
