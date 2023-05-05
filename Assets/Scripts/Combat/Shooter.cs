@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Shooter : MonoBehaviour
 {
+    public event Action<int> OnAmmoCountUpdate;
+
     [SerializeField] private Transform gun;
     [SerializeField] private GameObject projectile;
     [SerializeField] private Weapons currentWeapon = null;
@@ -15,6 +18,7 @@ public class Shooter : MonoBehaviour
 
     private float timeAfterLastShoot = Mathf.Infinity;
     private float timeOnOneShot;
+    private int _currentAmmoCount;
 
     private void Start() 
     {
@@ -28,13 +32,15 @@ public class Shooter : MonoBehaviour
 
     public void Shoot()
     {
-        if (timeAfterLastShoot > timeOnOneShot)
+        if (timeAfterLastShoot > timeOnOneShot && _currentAmmoCount > 0)
         {
             currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, 
                 rightHandTransform.rotation, _sideManager.GetSide());
             var clip = currentWeapon.GetSoundPlayer().GetRandomSound();
             _source.PlayOneShot(clip);
             timeAfterLastShoot = 0;
+            _currentAmmoCount--;
+            OnAmmoCountUpdate?.Invoke(_currentAmmoCount);
         }
     }
 
@@ -53,6 +59,8 @@ public class Shooter : MonoBehaviour
     private void AttachWeapon(Weapons weapon)
     {
         InitializeRateOfFire();
+        _currentAmmoCount = weapon.GetAmmoCount();
+        OnAmmoCountUpdate?.Invoke(_currentAmmoCount);
         currentWeapon.Equip(rightHandTransform, leftHandTransform);
     }
 

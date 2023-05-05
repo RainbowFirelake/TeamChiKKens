@@ -15,6 +15,10 @@ public class Weapons : ScriptableObject
     [SerializeField]
     private float _bulletSpeed = 10;
     [SerializeField]
+    private bool _isAmmoInfinite = false;
+    [SerializeField]
+    private int _ammoCount = 60;
+    [SerializeField]
     private bool _isDamageImpactsOnArea = false;
     [SerializeField]
     private float _damageArea = 1f;
@@ -124,6 +128,12 @@ public class Weapons : ScriptableObject
     public int GetRateOfFire()
     {
         return _rateOfFire;
+    }
+
+    public int GetAmmoCount()
+    {
+        if (_isAmmoInfinite) return 99999;
+        return _ammoCount;
     }
 
     private void InitializeBullet(Projectile projectileInstance, Side side = Side.Default)

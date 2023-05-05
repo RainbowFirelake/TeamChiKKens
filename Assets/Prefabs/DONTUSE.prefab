@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4718763018947030479}
   - component: {fileID: 6473001335270021924}
   m_Layer: 6
-  m_Name: CraftingCrate
+  m_Name: DONTUSE
   m_TagString: CraftingCrate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

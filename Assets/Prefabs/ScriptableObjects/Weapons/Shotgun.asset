@@ -19,6 +19,8 @@ MonoBehaviour:
   _rateOfFire: 120
   _damage: 10
   _bulletSpeed: 25
+  _isAmmoInfinite: 0
+  _ammoCount: 15
   _isDamageImpactsOnArea: 0
   _damageArea: 1
   _isLaunchingSeveralPellets: 1

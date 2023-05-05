@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3848950816112856896
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4718763018947030472, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 2959467708922500008, guid: bbbabda1de348db41bda1f2ef746ca46,
+        type: 3}
+    - target: {fileID: 4718763018947030473, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 66ea231543dddda41acc3da7325cc71f, type: 2}
+    - target: {fileID: 4718763018947030474, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 76168cdc8310b4b43a64f1c84c386deb,
+        type: 2}
+    - target: {fileID: 4718763018947030474, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: _isWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030475, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4718763018947030476, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: m_Name
+      value: RPGCraft
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473001335270021924, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: _weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 1593ef3bb7d010148bd6af51dd10ce91,
+        type: 2}
+    - target: {fileID: 6473001335270021924, guid: 9e63311d1614174458b9844316e65562,
+        type: 3}
+      propertyPath: _isWeapon
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4718763018947030474, guid: 9e63311d1614174458b9844316e65562, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 9e63311d1614174458b9844316e65562, type: 3}
