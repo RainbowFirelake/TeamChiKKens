@@ -1531,6 +1531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fillBar: {fileID: 0}
   _text: {fileID: 0}
+  _playerHealth: {fileID: 0}
 --- !u!1 &6167072803650563385
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+    public event Action<float, float> OnMove;
+
     [SerializeField]
     private UnityEngine.AI.NavMeshAgent _agent;
     private Transform _transform;
@@ -25,5 +28,8 @@ public class Movement : MonoBehaviour
         {
             _agent.SetDestination(_transform.position);
         }
+
+
+        OnMove?.Invoke(x, z);
     }
 }
