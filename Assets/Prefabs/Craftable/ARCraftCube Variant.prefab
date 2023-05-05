@@ -17,7 +17,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 89b8df5766a2dc1459b66909fd2f643e, type: 2}
+      objectReference: {fileID: 2100000, guid: 08830d161195a5641bbb8054543523b2, type: 2}
     - target: {fileID: 4718763018947030474, guid: 9e63311d1614174458b9844316e65562,
         type: 3}
       propertyPath: _weapon
@@ -107,7 +107,7 @@ PrefabInstance:
     - target: {fileID: 4718763018947030476, guid: 9e63311d1614174458b9844316e65562,
         type: 3}
       propertyPath: m_Name
-      value: ARCraft
+      value: ARCraftCube Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4718763018947030478, guid: 9e63311d1614174458b9844316e65562,
         type: 3}
