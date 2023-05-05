@@ -23,8 +23,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        var x = Input.GetAxis("Horizontal");
-        var z = Input.GetAxis("Vertical");
+        var x = Input.GetAxisRaw("Horizontal");
+        var z = Input.GetAxisRaw("Vertical");
 
         _movement.Move(x, z);
         

@@ -11,7 +11,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _audioSource
       value: 
-      objectReference: {fileID: 2306747315411247852}
+      objectReference: {fileID: 0}
     - target: {fileID: 805223491076257689, guid: 7c10196a33f050d46a1395e24cf4b3e7,
         type: 3}
       propertyPath: m_UseGravity
@@ -79,12 +79,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c10196a33f050d46a1395e24cf4b3e7, type: 3}
---- !u!82 &2306747315411247852 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4049679744603504796, guid: 7c10196a33f050d46a1395e24cf4b3e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1743012025153593968}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5139471845240630203 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6873476383225661899, guid: 7c10196a33f050d46a1395e24cf4b3e7,

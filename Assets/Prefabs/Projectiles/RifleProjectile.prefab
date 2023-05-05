@@ -11,7 +11,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _audioSource
       value: 
-      objectReference: {fileID: 7692623718048433173}
+      objectReference: {fileID: 0}
     - target: {fileID: 3253029166674831919, guid: 7c10196a33f050d46a1395e24cf4b3e7,
         type: 3}
       propertyPath: m_RootOrder
@@ -93,9 +93,3 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.74
   m_Center: {x: 0, y: 0, z: 0}
---- !u!82 &7692623718048433173 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4049679744603504796, guid: 7c10196a33f050d46a1395e24cf4b3e7,
-    type: 3}
-  m_PrefabInstance: {fileID: 5977097792373015689}
-  m_PrefabAsset: {fileID: 0}
