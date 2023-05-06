@@ -15,6 +15,7 @@ public class CraftMission : BaseMission
         CraftStation.OnCraft -= CheckCraft;
         OnMissionEndInvoke();
         EnableObjectsWhenEndMission();
+        _nextMission.StartMission();
     }   
 
     public override void StartMission()

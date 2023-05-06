@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &873886799118987437
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _mission
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _dialogueArea
+      value: 
+      objectReference: {fileID: 45150059}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _enableOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_Name
+      value: DestroyEnemyHQMission Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af349da1896e4e74088cb51d9e1531e1, type: 3}
+--- !u!1 &6526253647667229730 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 873886799118987437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &45150058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526253647667229730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8bc5ef2b6fd2e5409ab29313442f885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextMission: {fileID: 0}
+  _objectToActivateWhenStarted:
+  - {fileID: 0}
+  _objectToActivateWhenEnded: []
+  _missionInfo: "\u0423\u043D\u0438\u0447\u0442\u043E\u0436\u0438\u0442\u044C \u0432\u0440\u0430\u0436\u0435\u0441\u043A\u0443\u044E
+    \u0431\u0430\u0437\u0443"
+  _isPlayingMusicOnStart: 0
+  _dialogueOnStart: {fileID: 11400000, guid: f0db1829833997a4997998004f918f21, type: 2}
+  _musicType: 0
+--- !u!114 &45150059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526253647667229730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faea9f571ff445242abda1b150b30644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: f0db1829833997a4997998004f918f21, type: 2}
+--- !u!114 &45150064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6526253647667229730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36dbafeaf1e89a24891d8d7eb56b98f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mission: {fileID: 45150058}
+  _dialogueArea: {fileID: 45150059}
+  _enableOnStart: 1

@@ -5,9 +5,12 @@ using UnityEngine;
 
 public abstract class BaseMission : MonoBehaviour
 {
+    public static event Action<Dialogue> OnMissionDialogueStart;
     public static event Action<String> OnMissionStart;
     public static event Action<String> OnMissionCompletionUpdate;
     public static event Action OnMissionEnd;
+
+    public BaseMission _nextMission;
 
     [SerializeField]
     private List<GameObject> _objectToActivateWhenStarted;
@@ -17,6 +20,8 @@ public abstract class BaseMission : MonoBehaviour
     protected string _missionInfo;
     [SerializeField]
     private bool _isPlayingMusicOnStart;
+    [SerializeField]
+    private Dialogue _dialogueOnStart;
     [SerializeField]
     private MusicType _musicType;
 
@@ -33,12 +38,15 @@ public abstract class BaseMission : MonoBehaviour
 
     protected void EnableObjectsOnStartMission()
     {
+        OnMissionDialogueStart?.Invoke(_dialogueOnStart);
         if (_objectToActivateWhenStarted.Count == 0) return;
 
         foreach (var obj in _objectToActivateWhenStarted)
         {
             obj.SetActive(true);
         }
+
+        Debug.Log("Enable");
     }
 
     protected void EnableObjectsWhenEndMission()

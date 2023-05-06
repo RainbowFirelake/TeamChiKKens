@@ -49,11 +49,13 @@ public class DialogueController : MonoBehaviour
     {
         // подписка на событие для начала диалога
         DialogueArea.OnEnteringDialogue += StartDialogue;
+        BaseMission.OnMissionDialogueStart += StartDialogue;
     }
 
     void OnDisable()
     {
         DialogueArea.OnEnteringDialogue -= StartDialogue;
+        BaseMission.OnMissionDialogueStart -= StartDialogue;
     }
 
     private void Update() 

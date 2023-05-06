@@ -1,0 +1,133 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1679783458255305068
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869251, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _mission
+      value: 
+      objectReference: {fileID: 1320357342}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _dialogueArea
+      value: 
+      objectReference: {fileID: 1320357347}
+    - target: {fileID: 6246847226340869260, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: _enableOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_Name
+      value: DefendHQMission Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: af349da1896e4e74088cb51d9e1531e1, type: 3}
+--- !u!1 &4755388147901988323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6246847226340869263, guid: af349da1896e4e74088cb51d9e1531e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1679783458255305068}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1320357342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755388147901988323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcef70b2874e345428575cea6681ab75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _nextMission: {fileID: 0}
+  _objectToActivateWhenStarted:
+  - {fileID: 0}
+  - {fileID: 0}
+  _objectToActivateWhenEnded:
+  - {fileID: 0}
+  _missionInfo: "\u0417\u0430\u0449\u0438\u0449\u0430\u0442\u044C \u0431\u0430\u0437\u0443"
+  _isPlayingMusicOnStart: 1
+  _dialogueOnStart: {fileID: 11400000, guid: 7aec0af719ca8904fa6165df81a83055, type: 2}
+  _musicType: 1
+  _timeToDefend: 300
+--- !u!114 &1320357347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4755388147901988323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faea9f571ff445242abda1b150b30644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: 7aec0af719ca8904fa6165df81a83055, type: 2}

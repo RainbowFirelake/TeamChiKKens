@@ -23,6 +23,7 @@ public class DefendMission : BaseMission
     {
         OnMissionEndInvoke();
         EnableObjectsWhenEndMission();
+        _nextMission.StartMission();
     }
 
     public override void StartMission()
