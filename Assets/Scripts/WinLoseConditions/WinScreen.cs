@@ -26,12 +26,13 @@ public class WinScreen : MonoBehaviour
     {
         Debug.Log("win");
         _winScreen.SetActive(true);
+        LoseScreen.instance.DisableLose();
         StartCoroutine(ReloadCoroutine());
     }
 
     private IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(_timeToReloadScene);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }

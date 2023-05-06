@@ -20,7 +20,6 @@ public class KillEnemiesMission : BaseMission
         Health.OnEnemyDie -= CheckEnemyDie;
         OnMissionEndInvoke();
         EnableObjectsWhenEndMission();
-        this.gameObject.SetActive(false);
     }
 
     private void CheckEnemyDie(Side side)

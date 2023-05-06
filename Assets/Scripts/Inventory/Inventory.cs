@@ -46,6 +46,15 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void Unpickup()
+    {
+        if (_currentItemInHands != null)
+        {
+            _currentItemInHands.isInHands = false;
+            _currentItemInHands = null;
+        }
+    }
+
     public void Pickup()
     {
         if (_currentItemInHands != null)

@@ -23,7 +23,6 @@ public class DefendMission : BaseMission
     {
         OnMissionEndInvoke();
         EnableObjectsWhenEndMission();
-        this.gameObject.SetActive(false);
     }
 
     public override void StartMission()

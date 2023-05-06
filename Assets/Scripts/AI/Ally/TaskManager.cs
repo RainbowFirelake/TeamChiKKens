@@ -66,5 +66,11 @@ public class TaskManager : MonoBehaviour
         _isWorking = false;
     }
 
-
+    /// <summary>
+    /// This function is called when the MonoBehaviour will be destroyed.
+    /// </summary>
+    void OnDestroy()
+    {
+        _inventory.Unpickup();
+    }
 }

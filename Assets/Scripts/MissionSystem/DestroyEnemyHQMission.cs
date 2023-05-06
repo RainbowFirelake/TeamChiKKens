@@ -8,6 +8,12 @@ public class DestroyEnemyHQMission : BaseMission
         EnemyHeadquarters.OnDestroyEnemyHQ += CheckMissionWin;
     }
 
+    void OnDisable()
+    {
+        PlayerHeadQuarters.OnDestroyPlayerHQ -= CheckMissionFail;
+        EnemyHeadquarters.OnDestroyEnemyHQ -= CheckMissionWin;
+    }
+
     public override void StartMission()
     {
         OnMissionStartInvoke(_missionInfo);

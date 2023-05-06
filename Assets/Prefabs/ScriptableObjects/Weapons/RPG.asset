@@ -17,12 +17,12 @@ MonoBehaviour:
   projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
     type: 3}
   _rateOfFire: 30
-  _damage: 100
+  _damage: 150
   _bulletSpeed: 25
   _isAmmoInfinite: 0
-  _ammoCount: 8
+  _ammoCount: 5
   _isDamageImpactsOnArea: 1
-  _damageArea: 4
+  _damageArea: 8
   _isLaunchingSeveralPellets: 0
   _pelletsCount: 5
   _spreadAngle: 0

@@ -11,6 +11,8 @@ public class LoseScreen : MonoBehaviour
     private GameObject _loseScreen;
     [SerializeField]
     private float _timeToReloadScene = 2f;
+    [SerializeField]
+    private bool _cantLose = false;
 
     /// <summary>
     /// Awake is called when the script instance is being loaded.
@@ -25,14 +27,22 @@ public class LoseScreen : MonoBehaviour
 
     public void Lose()
     {
-        Debug.Log("lose");
-        _loseScreen.SetActive(true);
-        StartCoroutine(ReloadCoroutine());
+        if(!_cantLose)
+        {
+            Debug.Log("lose");
+            _loseScreen.SetActive(true);
+            StartCoroutine(ReloadCoroutine());
+        }
+    }
+
+    public void DisableLose()
+    {
+        _cantLose = false;
     }
 
     private IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(_timeToReloadScene);
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 }
