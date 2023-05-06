@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Waves3
   m_EditorClassIdentifier: 
   gameObjects: []
-  Count: 0
-  MaxCountinGroupe: 0
-  secondBetweenSpawn: 0
+  Count: 9999
+  MaxCountinGroupe: 2
+  secondBetweenSpawn: 4
