@@ -17,9 +17,9 @@ public class KillEnemiesMission : BaseMission
 
     public override void EndMission()
     {
-        EnableObjectsWhenEndMission();
         Health.OnEnemyDie -= CheckEnemyDie;
         OnMissionEndInvoke();
+        EnableObjectsWhenEndMission();
         this.gameObject.SetActive(false);
     }
 

@@ -12,8 +12,8 @@ public class CraftMission : BaseMission
 
     public override void EndMission()
     {
-        EnableObjectsWhenEndMission();
         OnMissionEndInvoke();
+        EnableObjectsWhenEndMission();
         this.gameObject.SetActive(false);
     }   
 

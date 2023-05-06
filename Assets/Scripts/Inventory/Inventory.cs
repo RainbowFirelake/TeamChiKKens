@@ -25,11 +25,13 @@ public class Inventory : MonoBehaviour
     void OnEnable()
     {
         _pickupTrigger.OnItemCheck += CheckForItemsAround;
+        Health.OnChangeMan += FreeHands;
     }
 
     void OnDisable()
     {
         _pickupTrigger.OnItemCheck -= CheckForItemsAround;
+        Health.OnChangeMan -= FreeHands;
     }
 
     void Update()
@@ -93,5 +95,10 @@ public class Inventory : MonoBehaviour
     public bool isItemInHands()
     {
         return _currentItemInHands != null;
+    }
+
+    public void FreeHands()
+    {
+        _currentItemInHands = null;
     }
 }

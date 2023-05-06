@@ -14,10 +14,15 @@ public class DefendMission : BaseMission
         PlayerHeadQuarters.OnDestroyPlayerHQ += MissionFailed;
     }
 
+    void OnDisable()
+    {
+        PlayerHeadQuarters.OnDestroyPlayerHQ -= MissionFailed;
+    }
+
     public override void EndMission()
     {
-        EnableObjectsWhenEndMission();
         OnMissionEndInvoke();
+        EnableObjectsWhenEndMission();
         this.gameObject.SetActive(false);
     }
 

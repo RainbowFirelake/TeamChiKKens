@@ -111,8 +111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f763e5cd279fc52419a80e3619e3bf96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthPoints: 100
-  maxHealthPoints: 100
+  healthPoints: 150
+  maxHealthPoints: 150
   _sideManager: {fileID: 2732272632976263980}
   _destroyOnDie: 1
   _isPlayer: 0

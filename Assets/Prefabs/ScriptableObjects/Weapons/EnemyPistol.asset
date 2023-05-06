@@ -16,9 +16,11 @@ MonoBehaviour:
     type: 3}
   projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
     type: 3}
-  _rateOfFire: 250
-  _damage: 10
+  _rateOfFire: 110
+  _damage: 7
   _bulletSpeed: 20
+  _isAmmoInfinite: 1
+  _ammoCount: 60
   _isDamageImpactsOnArea: 0
   _damageArea: 3
   _isLaunchingSeveralPellets: 0

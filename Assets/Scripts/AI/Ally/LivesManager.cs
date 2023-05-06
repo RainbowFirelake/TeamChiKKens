@@ -19,6 +19,12 @@ public class LivesManager : MonoBehaviour
         Health.OnChangeMan += OnDeadPlayer;
     }
 
+    private void OnDisable()
+    {
+        Health.OnChangeMan -= OnDeadPlayer;
+    }
+
+
     private void OnDeadPlayer()
     {
         gameObjects = GameObject.FindGameObjectsWithTag("Ally").ToList();

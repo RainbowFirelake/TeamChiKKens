@@ -24,7 +24,7 @@ public class EnemySpawn : MonoBehaviour
 
             for (int i = 0; i < countGrope; i++)
             {
-                Instantiate(_level.gameObjects[Random.Range(0, _level.gameObjects.Count - 1)], transforms[Random.Range(0, transforms.Length)].transform.position, Quaternion.identity);
+                Instantiate(_level.gameObjects[Random.Range(0, _level.gameObjects.Count)], transforms[Random.Range(0, transforms.Length)].transform.position, Quaternion.identity);
             }
             _spawnCount -= countGrope;
             yield return new WaitForSeconds(_level.secondBetweenSpawn);
