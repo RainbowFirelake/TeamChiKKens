@@ -9,6 +9,10 @@ public class CraftStation : MonoBehaviour
     public static event Action<CraftType> OnCraft;
 
     [SerializeField]
+    private GameObject _OnCreateVFX;
+    [SerializeField]
+    private GameObject _OnHealVFX;
+    [SerializeField]
     private List<CraftableItem> _craftableItems;
     [SerializeField]
     private Transform _spawnPoint = null;
@@ -38,15 +42,27 @@ public class CraftStation : MonoBehaviour
             int countChick = GameObject.FindGameObjectsWithTag("Ally").Length;
             if(countChick > 3) 
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().SetHealth(250f);
+                var player = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+                player.SetHealth(250f);
                 OnCraft?.Invoke(itemToCraft.type);
                 for (int i = 0; i < itemToCraft.cratesToCraft; i++)
                     Destroy(cretes[i].gameObject);
+
+                if (_OnHealVFX != null)
+                {
+                    Instantiate(_OnHealVFX, player.transform.position, player.transform.rotation, player.transform);
+                }
+
                 return;
             }
         }
         Instantiate(itemToCraft.craftableObject, _spawnPoint.position, _spawnPoint.rotation);
         OnCraft?.Invoke(itemToCraft.type);
+
+        if (_OnCreateVFX != null)
+        {
+            Instantiate(_OnCreateVFX, _spawnPoint.position, _spawnPoint.rotation);
+        }
         for (int i = 0; i < itemToCraft.cratesToCraft; i++)
             Destroy(cretes[i].gameObject);
     }

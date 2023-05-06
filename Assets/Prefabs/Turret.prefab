@@ -320,6 +320,7 @@ MonoBehaviour:
   maxHealthPoints: 150
   _sideManager: {fileID: 8282485071121467617}
   _destroyOnDie: 1
+  _isPlayer: 0
 --- !u!114 &8282485071121467617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -358,7 +359,8 @@ AudioSource:
   m_GameObject: {fileID: 4353381076077808422}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 4a93209aba2c628469de227a1fad3473,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.097
