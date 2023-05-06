@@ -47,7 +47,10 @@ public abstract class BaseMission : MonoBehaviour
 
         foreach (var obj in _objectToActivateWhenEnded)
         {
-            obj.SetActive(true);
+            if (obj != null)
+            {
+                obj.SetActive(true);
+            }
         }
     }
 
