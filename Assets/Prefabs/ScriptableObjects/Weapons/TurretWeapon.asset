@@ -17,7 +17,7 @@ MonoBehaviour:
   projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
     type: 3}
   _rateOfFire: 150
-  _damage: 10
+  _damage: 20
   _bulletSpeed: 20
   _isAmmoInfinite: 1
   _ammoCount: 60
