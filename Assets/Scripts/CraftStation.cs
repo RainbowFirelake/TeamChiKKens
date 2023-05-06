@@ -33,7 +33,18 @@ public class CraftStation : MonoBehaviour
         }
 
         if (itemToCraft == null) return;
-
+        if(itemToCraft.cratesToCraft == 4)
+        {
+            int countChick = GameObject.FindGameObjectsWithTag("Ally").Length;
+            if(countChick > 3) 
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().SetHealth(250f);
+                OnCraft?.Invoke(itemToCraft.type);
+                for (int i = 0; i < itemToCraft.cratesToCraft; i++)
+                    Destroy(cretes[i].gameObject);
+                return;
+            }
+        }
         Instantiate(itemToCraft.craftableObject, _spawnPoint.position, _spawnPoint.rotation);
         OnCraft?.Invoke(itemToCraft.type);
         for (int i = 0; i < itemToCraft.cratesToCraft; i++)

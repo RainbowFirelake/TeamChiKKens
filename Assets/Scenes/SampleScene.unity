@@ -7505,6 +7505,14 @@ PrefabInstance:
       propertyPath: m_enableAutoSizing
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 658967302, guid: 8e3bd6bd1386b1a42ab0628cf8611327, type: 3}
+      propertyPath: timeOfLetterShowing
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 658967302, guid: 8e3bd6bd1386b1a42ab0628cf8611327, type: 3}
+      propertyPath: _isKeyNeededToContinue
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 658967311, guid: 8e3bd6bd1386b1a42ab0628cf8611327, type: 3}
       propertyPath: _playerShooter
       value: 
