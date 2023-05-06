@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731715, g: 0.13414735, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -546,7 +546,6 @@ GameObject:
   - component: {fileID: 241208037}
   - component: {fileID: 241208036}
   - component: {fileID: 241208035}
-  - component: {fileID: 241208034}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -576,19 +575,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.69989, y: -28}
   m_SizeDelta: {x: 160, y: 56}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &241208034
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241208032}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71ba9d68e3d8e3e439e3fea8064715d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sceneToLoad: 1
 --- !u!114 &241208035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1405,10 +1391,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1609243660}
   m_HandleRect: {fileID: 1737896386}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -40
+  m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 10
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

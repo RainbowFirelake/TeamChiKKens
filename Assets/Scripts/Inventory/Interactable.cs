@@ -31,4 +31,12 @@ public class Interactable : MonoBehaviour
         _transform.position = position;
         _transform.rotation = rotation;
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Ground")
+        {
+            isInHands = false;
+        }
+    }
 }
