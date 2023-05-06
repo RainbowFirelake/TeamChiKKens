@@ -12,6 +12,7 @@ public class CraftMission : BaseMission
 
     public override void EndMission()
     {
+        CraftStation.OnCraft -= CheckCraft;
         OnMissionEndInvoke();
         EnableObjectsWhenEndMission();
         this.gameObject.SetActive(false);

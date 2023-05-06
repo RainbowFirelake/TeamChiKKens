@@ -37,6 +37,6 @@ public class LivesManager : MonoBehaviour
         int randomIndex = Random.Range(0, gameObjects.Count - 1);
         Player.transform.position = gameObjects[randomIndex].transform.position;
         Destroy(gameObjects[randomIndex]);
-        Player.GetComponent<Health>().SetHealth(100f);
+        Player.GetComponent<Health>().SetHealth(250f);
     }
 }
