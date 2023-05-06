@@ -22,6 +22,7 @@ public class DialogueController : MonoBehaviour
     [SerializeField] private bool _isKeyNeededToContinue = false;
     [SerializeField] private float _timeToAutoContinueDialogue = 2f;
     [SerializeField] private KeyCode keyToContinueDialogue = KeyCode.F;
+    [SerializeField] private bool _initializeOnStart = false;
 
     private int _currentDialogueLineIndex = -1;
     private  int _numberOfFinishedDialogues = 1;
@@ -35,7 +36,10 @@ public class DialogueController : MonoBehaviour
 
     private void Start()
     {   
-        InitializeDialoguePanel();
+        if (_initializeOnStart)
+        {
+            InitializeDialoguePanel();
+        }
         tmp_dialogueHint.text = "Нажмите " + keyToContinueDialogue.ToString() + ", чтобы продолжить";
         audioSource = GetComponent<AudioSource>();
         _numberOfFinishedDialogues = 0;

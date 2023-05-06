@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b339ce2245246ba4f8c0d937bdc2bf24, type: 3}
+  m_Name: TurretWeapon
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 6555108777741635327, guid: 48eb5a6d0d9c37c4ca696419e13fb8a1,
+    type: 3}
+  projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
+    type: 3}
+  _rateOfFire: 150
+  _damage: 10
+  _bulletSpeed: 20
+  _isAmmoInfinite: 1
+  _ammoCount: 60
+  _isDamageImpactsOnArea: 0
+  _damageArea: 1
+  _isLaunchingSeveralPellets: 0
+  _pelletsCount: 5
+  _spreadAngle: 0
+  _shootSounds: {fileID: 11400000, guid: 124015730895d5648ac2e78bf824a310, type: 2}
+  _impactSounds: {fileID: 11400000, guid: 124015730895d5648ac2e78bf824a310, type: 2}
+  _impactEffect: {fileID: 0}
+  leftHanded: 0

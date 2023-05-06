@@ -15,9 +15,21 @@ public abstract class BaseMission : MonoBehaviour
     private List<GameObject> _objectToActivateWhenEnded;
     [SerializeField]
     protected string _missionInfo;
+    [SerializeField]
+    private bool _isPlayingMusicOnStart;
+    [SerializeField]
+    private MusicType _musicType;
 
     public abstract void StartMission();
     public abstract void EndMission();
+
+    void Start()
+    {
+        if (_isPlayingMusicOnStart)
+        {
+            MusicPlayer.instance.PlayMusic(_musicType);
+        }
+    }
 
     protected void EnableObjectsOnStartMission()
     {

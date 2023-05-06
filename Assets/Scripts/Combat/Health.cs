@@ -5,6 +5,7 @@ using System;
 
 public class Health : MonoBehaviour
 {
+    public static event Action OnChangeMan;
     public static event Action<Side> OnEnemyDie;
     public event Action OnDie;
 
@@ -14,6 +15,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealthPoints = 100f;
     [SerializeField] private SideManager _sideManager;
     [SerializeField] private bool _destroyOnDie = true;
+    [SerializeField] private bool _isPlayer = false;
 
     private bool isDead = false;
 
@@ -51,6 +53,11 @@ public class Health : MonoBehaviour
     {
         if (isDead) return;
 
+        if (_isPlayer)
+        {
+            OnChangeMan?.Invoke();
+            return;
+        }
         OnEnemyDie?.Invoke(GetSide());
         OnDie?.Invoke();
         isDead = true;
@@ -58,5 +65,11 @@ public class Health : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    public void SetHealth(float value)
+    {
+        healthPoints = value;
+        OnUpdateHealth?.Invoke(healthPoints);
     }
 }

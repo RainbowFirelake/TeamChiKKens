@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f07b6c1104364fd49b220d241dc0d1ee, type: 3}
-  m_Name: testSpeaker
+  m_Name: General
   m_EditorClassIdentifier: 
-  speakerName: test
-  portrait: {fileID: 21300000, guid: 7ab74e659e1f0a34d9cfec21c478fc12, type: 3}
+  speakerName: "\u0413\u0435\u043D\u0435\u0440\u0430\u043B \u0423\u0442\u0451\u043D\u044B\u0447"
+  portrait: {fileID: 21300000, guid: 3348a992b81265f4abb8df3acb66ce29, type: 3}
   color: {r: 0, g: 0, b: 0, a: 0}

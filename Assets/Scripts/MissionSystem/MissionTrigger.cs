@@ -17,6 +17,7 @@ public class MissionTrigger : MonoBehaviour
         {
             _mission.StartMission();
             _dialogueArea.ActivateDialogue();
+            _isActivated = true;
         }
     }
 
@@ -26,7 +27,6 @@ public class MissionTrigger : MonoBehaviour
         {
             _mission.StartMission();
             _dialogueArea.ActivateDialogue();
-            _isActivated = true;
         }
     }
 }

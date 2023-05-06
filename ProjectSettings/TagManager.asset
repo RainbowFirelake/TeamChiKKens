@@ -9,6 +9,9 @@ TagManager:
   - WorkingStation
   - CraftingCrate
   - Ground
+  - Base
+  - SpawnZoneEnemy
+  - Ally
   layers:
   - Default
   - TransparentFX

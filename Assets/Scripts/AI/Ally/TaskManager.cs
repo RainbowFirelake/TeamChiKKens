@@ -29,8 +29,8 @@ public class TaskManager : MonoBehaviour
         if(!_isWorking)
         foreach (GameObject spawnZone in _spawnZones)
         {
-            bool hasColliders = Physics.CheckBox(spawnZone.transform.position, spawnZone.transform.localScale / 2);
-            if (hasColliders)
+            bool hasColliders = Physics.OverlapBox(spawnZone.transform.position, spawnZone.transform.localScale / 2 , Quaternion.identity).Any(x => x.CompareTag("CraftingCrate"));
+                if (hasColliders)
             {
                 _isWorking = true;
                     StartCoroutine(CompleateTask(spawnZone));
@@ -43,21 +43,26 @@ public class TaskManager : MonoBehaviour
     IEnumerator CompleateTask(GameObject spawnZone)
     {
         _agent.SetDestination(spawnZone.transform.position);
-        while (_agent.remainingDistance > _agent.stoppingDistance)
+        while (Vector3.Distance(transform.position, spawnZone.transform.position) >= 3f)
         {
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
         }
-
+        Debug.Log("PickUp");
         _inventory.Pickup();
-
-        _agent.SetDestination(_base.transform.position);
-        while (_agent.remainingDistance > _agent.stoppingDistance)
+        yield return new WaitForSeconds(0.2f);
+        if (_inventory.isItemInHands())
         {
-            yield return null;
+            yield return new WaitForSeconds(0.1f);
+            _agent.SetDestination(_base.transform.position);
+
+            while (Vector3.Distance(transform.position, _base.position) >= 2f)
+            {
+                yield return new WaitForSeconds(0.1f);
+            }
+
+            _inventory.Pickup();
+            yield return new WaitForSeconds(0.1f);
         }
-
-        _inventory.Pickup();
-
         _isWorking = false;
     }
 

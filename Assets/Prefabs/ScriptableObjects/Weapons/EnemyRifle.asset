@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b339ce2245246ba4f8c0d937bdc2bf24, type: 3}
+  m_Name: EnemyRifle
+  m_EditorClassIdentifier: 
+  _weaponPrefab: {fileID: 5313856188506331232, guid: 7444562fe5798e846a4045a93e123308,
+    type: 3}
+  projectile: {fileID: 2230983722087087521, guid: b0abec07184b1bb4bae9768602ad3c6f,
+    type: 3}
+  _rateOfFire: 200
+  _damage: 10
+  _bulletSpeed: 25
+  _isAmmoInfinite: 1
+  _ammoCount: 40
+  _isDamageImpactsOnArea: 0
+  _damageArea: 1
+  _isLaunchingSeveralPellets: 0
+  _pelletsCount: 5
+  _spreadAngle: 0
+  _shootSounds: {fileID: 11400000, guid: 1dffad28f6dfac74a980d8444a5d05df, type: 2}
+  _impactSounds: {fileID: 11400000, guid: 9031028023f4f0d45ab3768f2dcee0c7, type: 2}
+  _impactEffect: {fileID: 4021103657954561961, guid: 5c755f9bc5253ea418e919994537dcc7,
+    type: 3}
+  leftHanded: 0

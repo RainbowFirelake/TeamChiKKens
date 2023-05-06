@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CraftStation : MonoBehaviour
 {
+    public static event Action<CraftType> OnCraft;
+
     [SerializeField]
     private List<CraftableItem> _craftableItems;
     [SerializeField]
@@ -30,6 +33,7 @@ public class CraftStation : MonoBehaviour
         if (itemToCraft == null) return;
 
         Instantiate(itemToCraft.craftableObject, _spawnPoint.position, _spawnPoint.rotation);
+        OnCraft?.Invoke(itemToCraft.type);
         DestroyCrates(itemToCraft.cratesToCraft);
     }
 
@@ -64,5 +68,6 @@ public class CraftStation : MonoBehaviour
     {
         public GameObject craftableObject;
         public int cratesToCraft;
+        public CraftType type;
     }    
 }

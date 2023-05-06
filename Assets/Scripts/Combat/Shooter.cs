@@ -37,7 +37,10 @@ public class Shooter : MonoBehaviour
             currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, 
                 rightHandTransform.rotation, _sideManager.GetSide());
             var clip = currentWeapon.GetSoundPlayer().GetRandomSound();
-            _source.PlayOneShot(clip);
+            if (_source != null)
+            {
+                _source.PlayOneShot(clip);
+            }
             timeAfterLastShoot = 0;
             _currentAmmoCount--;
             OnAmmoCountUpdate?.Invoke(_currentAmmoCount);

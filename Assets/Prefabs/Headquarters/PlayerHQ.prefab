@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4851
+  m_VersionIndex: 4857
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -339,7 +339,7 @@ MeshCollider:
   m_GameObject: {fileID: 4439341324805144586}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -616,7 +616,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4652
+  m_VersionIndex: 4658
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -707,7 +707,7 @@ MeshCollider:
   m_GameObject: {fileID: 5741835175370902674}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 213430772}
   m_Layer: 0
   m_Name: PlayerHQ
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -825,6 +825,7 @@ MonoBehaviour:
   maxHealthPoints: 200
   _sideManager: {fileID: 213430770}
   _destroyOnDie: 0
+  _isPlayer: 0
 --- !u!114 &213430772
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+
     [SerializeField]
     private PickupTrigger _pickupTrigger;
     [SerializeField]
@@ -87,5 +88,10 @@ public class Inventory : MonoBehaviour
             nearestInteractable.isInHands = true;
             _currentItemInHands = nearestInteractable;
         }
+    }
+
+    public bool isItemInHands()
+    {
+        return _currentItemInHands != null;
     }
 }
