@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -11,40 +12,38 @@ public class Inventory : MonoBehaviour
     private Transform _holdingObjectPoint;
     [SerializeField]
     private Shooter _shooter = null;
-
+    [SerializeField]
+    private float _radius = 3f;
     private Transform _transform;
     private Interactable _currentItemInHands = null;
-    private List<Interactable> _itemsAround;
 
     void Start()
     {
-        _itemsAround = new List<Interactable>();
         _transform = GetComponent<Transform>();
+        StartCoroutine(MoveCreate());
     }
 
     void OnEnable()
     {
-        _pickupTrigger.OnItemCheck += CheckForItemsAround;
         Health.OnChangeMan += FreeHands;
     }
 
     void OnDisable()
     {
-        _pickupTrigger.OnItemCheck -= CheckForItemsAround;
         Health.OnChangeMan -= FreeHands;
     }
 
-    void Update()
+    IEnumerator MoveCreate()
     {
-        if (_currentItemInHands != null)
+        while (true)
         {
-            _currentItemInHands.SetPosition(_holdingObjectPoint.position, _transform.rotation);
-        }
-    }
 
-    public void CheckForItemsAround(List<Interactable> itemsAround)
-    {
-        _itemsAround = itemsAround;
+            if (_currentItemInHands != null)
+            {
+                _currentItemInHands.SetPosition(_holdingObjectPoint.position, _transform.rotation);
+            }
+            yield return new WaitForSecondsRealtime(0.001f);
+        }
     }
 
     public void Pickup()
@@ -58,14 +57,16 @@ public class Inventory : MonoBehaviour
 
         var minimalDistance = 4f;
         Interactable nearestInteractable = null;
+        List<Collider> _itemsAround = Physics.OverlapSphere(transform.position, _radius).Where(x => x.GetComponent<Interactable>() != null).ToList();
         foreach (var pickupable in _itemsAround)
         {
-            var distance = (_transform.position - pickupable.GetPosition()).sqrMagnitude;
+            var pick = pickupable.GetComponent<Interactable>();
+            var distance = (_transform.position - pick.GetPosition()).sqrMagnitude;
             //var distance = Vector3.Distance(_transform.position, pickupable.GetPosition());
             if (distance < minimalDistance * minimalDistance)
             {
-                if (pickupable.isInHands) continue;
-                nearestInteractable = pickupable;
+                if (pick.isInHands) continue;
+                nearestInteractable = pick;
                 minimalDistance = distance;
             }
         }
@@ -80,7 +81,6 @@ public class Inventory : MonoBehaviour
         if (_shooter != null && nearestInteractable != null && nearestInteractable.IsWeapon)
         {
             _shooter.EquipWeapon(nearestInteractable.GetWeapon);
-            _itemsAround.Remove(nearestInteractable);
             Destroy(nearestInteractable.gameObject);
             return;
         }

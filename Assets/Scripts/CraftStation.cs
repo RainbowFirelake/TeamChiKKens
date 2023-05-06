@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class CraftStation : MonoBehaviour
 {
@@ -22,9 +23,10 @@ public class CraftStation : MonoBehaviour
     public void Craft()
     {
         CraftableItem itemToCraft = null;
+        List<Collider> cretes = Physics.OverlapBox(transform.position, transform.localScale, Quaternion.identity).Where(x => x.CompareTag("CraftingCrate")).ToList();
         foreach (var craftable in _craftableItems)
         {
-            if (craftable.cratesToCraft <= _crates.Count)
+            if (craftable.cratesToCraft <= cretes.Count)
             {
                 itemToCraft = craftable;
             }
@@ -34,33 +36,8 @@ public class CraftStation : MonoBehaviour
 
         Instantiate(itemToCraft.craftableObject, _spawnPoint.position, _spawnPoint.rotation);
         OnCraft?.Invoke(itemToCraft.type);
-        DestroyCrates(itemToCraft.cratesToCraft);
-    }
-
-    private void DestroyCrates(int count)
-    {
-        for (int i = 0; i < count; i++)
-        {
-            _crates[i].SetActive(false);
-        }
-
-        _crates.RemoveRange(0, count);
-    }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "CraftingCrate")
-        {
-            _crates.Add(other.gameObject);
-        }
-    }
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "CraftingCrate")
-        {
-            _crates.Remove(other.gameObject);
-        }
+        for (int i = 0; i < itemToCraft.cratesToCraft; i++)
+            Destroy(cretes[i].gameObject);
     }
 
     [System.Serializable]
