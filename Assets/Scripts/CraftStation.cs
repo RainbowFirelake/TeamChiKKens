@@ -23,7 +23,7 @@ public class CraftStation : MonoBehaviour
     public void Craft()
     {
         CraftableItem itemToCraft = null;
-        List<Collider> cretes = Physics.OverlapBox(transform.position, transform.localScale, Quaternion.identity).Where(x => x.CompareTag("CraftingCrate")).ToList();
+        List<Collider> cretes = Physics.OverlapBox(transform.position, transform.localScale / 2, Quaternion.identity).Where(x => x.CompareTag("CraftingCrate")).ToList();
         foreach (var craftable in _craftableItems)
         {
             if (craftable.cratesToCraft <= cretes.Count)
