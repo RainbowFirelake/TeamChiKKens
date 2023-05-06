@@ -17,15 +17,15 @@ MonoBehaviour:
   projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
     type: 3}
   _rateOfFire: 120
-  _damage: 10
+  _damage: 40
   _bulletSpeed: 25
   _isAmmoInfinite: 0
-  _ammoCount: 15
+  _ammoCount: 25
   _isDamageImpactsOnArea: 0
   _damageArea: 1
   _isLaunchingSeveralPellets: 1
   _pelletsCount: 5
-  _spreadAngle: 5
+  _spreadAngle: 10
   _shootSounds: {fileID: 11400000, guid: 10f3254c96d45174eacaae7660b059d5, type: 2}
   _impactSounds: {fileID: 11400000, guid: 9031028023f4f0d45ab3768f2dcee0c7, type: 2}
   _impactEffect: {fileID: 0}

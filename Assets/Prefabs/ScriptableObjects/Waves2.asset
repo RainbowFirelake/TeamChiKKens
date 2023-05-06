@@ -16,5 +16,5 @@ MonoBehaviour:
   - {fileID: 777034931077425294, guid: 385dea75b8b03304d90c1270b1f649f8, type: 3}
   - {fileID: 777034931077425294, guid: d4893dde2fe7fd540a2fb029d792e885, type: 3}
   Count: 9999
-  MaxCountinGroupe: 3
-  secondBetweenSpawn: 6
+  MaxCountinGroupe: 4
+  secondBetweenSpawn: 5

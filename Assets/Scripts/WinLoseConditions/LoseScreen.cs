@@ -33,6 +33,6 @@ public class LoseScreen : MonoBehaviour
     private IEnumerator ReloadCoroutine()
     {
         yield return new WaitForSeconds(_timeToReloadScene);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 }

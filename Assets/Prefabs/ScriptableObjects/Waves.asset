@@ -16,4 +16,4 @@ MonoBehaviour:
   - {fileID: 777034931077425294, guid: 385dea75b8b03304d90c1270b1f649f8, type: 3}
   Count: 7
   MaxCountinGroupe: 2
-  secondBetweenSpawn: 5
+  secondBetweenSpawn: 3

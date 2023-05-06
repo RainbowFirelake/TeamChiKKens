@@ -31,8 +31,8 @@ public class LivesManager : MonoBehaviour
         if (gameObjects.Count == 0)
         {
             Destroy(Player);
+            LoseScreen.instance.Lose();
             return;
-            //Todo Lose
         }
         int randomIndex = Random.Range(0, gameObjects.Count - 1);
         Player.transform.position = gameObjects[randomIndex].transform.position;

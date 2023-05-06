@@ -17,8 +17,10 @@ MonoBehaviour:
   projectile: {fileID: 8886401523097908869, guid: 20d12f3ca599d4e4db415ef63dfef0d5,
     type: 3}
   _rateOfFire: 250
-  _damage: 10
+  _damage: 40
   _bulletSpeed: 20
+  _isAmmoInfinite: 0
+  _ammoCount: 60
   _isDamageImpactsOnArea: 0
   _damageArea: 3
   _isLaunchingSeveralPellets: 0
