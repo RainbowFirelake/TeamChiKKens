@@ -2,6 +2,8 @@
 
 This game was made in a week during the GameBoxJam 
 
+Play now! https://arbuz-ashot.itch.io/team-chikkens
+
 ![image](https://github.com/RainbowFirelake/TeamChiKKens/assets/45136883/a4c8c08b-1c75-4af1-8caf-0319406c0b68)
 
 Hi! This is TeamChiKKens, top-down shooter with elements of strategy and tower defence!
